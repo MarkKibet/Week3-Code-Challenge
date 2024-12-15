@@ -1,79 +1,73 @@
-/* styles.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap'); /* Added Lobster font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #121212; /* Blackish background color */
+    background-color: #121212;
     margin: 0;
     padding: 0;
-    color: #e0e0e0; /* Light gray text color */
+    color: #e0e0e0;
     position: relative;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-x: hidden;
 }
 
+/* Slider styles */
 .slider-container {
     position: relative;
     width: 100%;
-    height: 350px; /* Increase height to touch the container below */
+    height: 350px;
     overflow: hidden;
 }
 
 .slider {
     display: flex;
-    width: 200%; /* Double the width to accommodate seamless looping */
+    width: 200%;
     height: 100%;
     animation: slide 20s linear infinite;
-    position: relative;
 }
 
 .slider img {
-    width: 100%; /* Ensure each image takes up full width of the container */
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(50%); /* Slightly darken the images */
+    filter: brightness(50%);
+}
+
+.header-fade, .slider-fade-left, .slider-fade-right {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 3;
 }
 
 .header-fade {
-    position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(70, 66, 66, 0.7), rgba(109, 104, 104, 0)); /* Fade effect at the bottom */
-     z-index: 2; /* Place above slider images */
-}
-
-.slider-fade-left,
-.slider-fade-right {
-    position: absolute;
-    top: 0;
-    width: 200px; /* Width of the fade */
-    height: 100%;
-    z-index: 3; /* Place above slider images */
+    background: linear-gradient(to bottom, rgba(70, 66, 66, 0.7), rgba(109, 104, 104, 0));
 }
 
 .slider-fade-left {
     left: 0;
-    background: linear-gradient(to right, rgba(18, 18, 18, 1), rgba(18, 18, 18, 0)); /* Fade effect at the left edge */
+    width: 200px;
+    background: linear-gradient(to right, rgba(18, 18, 18, 1), rgba(18, 18, 18, 0));
 }
 
 .slider-fade-right {
     right: 0;
-    background: linear-gradient(to left, rgba(18, 18, 18, 1), rgba(18, 18, 18, 0)); /* Fade effect at the right edge */
+    width: 200px;
+    background: linear-gradient(to left, rgba(18, 18, 18, 1), rgba(18, 18, 18, 0));
 }
 
+/* Header styles */
 header {
-    background-color: transparent; /* Make the header background transparent */
-    color: #ff9800; /* Amber text color */
+    background-color: transparent;
+    color: #ff9800;
     padding: 1rem 2rem;
     text-align: center;
-    box-shadow: none;
-    position: absolute; /* Position above the slider */
+    position: absolute;
     top: 0;
-    width: 100%; /* Full width */
-    z-index: 4; /* Place above fading effect */
+    width: 100%;
+    z-index: 4;
 }
 
 header .logo-container {
@@ -82,52 +76,51 @@ header .logo-container {
 }
 
 header .logo {
-    height: 120px; /* Increased size of the logo */
+    height: 120px;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); /* Add a shadow for blending effect */
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
     transition: transform 0.3s ease-in-out;
 }
 
 header .logo:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover for effect */
+    transform: scale(1.05);
 }
 
 header h1 {
     margin: 0;
     font-size: 3rem;
-    font-family: 'Lobster', cursive; /* Change the font to Lobster */
-    color: #ff9800; /* Amber text color */
+    font-family: 'Lobster', cursive;
+    color: #ff9800;
 }
 
 header h2 {
-    font-family: 'Roboto', sans-serif;
-    color: #e0e0e0; /* Light gray text color */
+    color: #e0e0e0;
     margin-top: 0.5rem;
 }
 
+/* Layout styles */
 .container {
     display: flex;
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
-    z-index: 1;
 }
 
 aside {
     flex: 1;
-    background-color: rgba(255, 255, 255, 0.15); /* Transparent white background */
+    background-color: rgba(255, 255, 255, 0.15);
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-right: 1rem;
     overflow-y: auto;
-    max-height: 80vh; /* Ensure the sidebar fits within the viewport */
+    max-height: 80vh;
 }
 
 aside h2 {
     text-align: center;
-    color: #ff9800; /* Amber text color */
+    color: #ff9800;
     margin-bottom: 1rem;
 }
 
@@ -138,26 +131,65 @@ aside h2 {
 }
 
 .film-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem;
     border-bottom: 1px solid #eee;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    align-items: center;
-    color: #e0e0e0; /* Light gray text color */
+    color: #e0e0e0;
 }
 
 .film-list li img {
     height: 50px;
     border-radius: 5px;
     margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.film-list li span {
+    flex-grow: 1;
+    padding-right: 10px;
 }
 
 .film-list li:hover {
-    background-color: #ff5722; /* Deep orange hover color */
-    color: #ffffff; /* White text color on hover */
+    background-color: #ff5722;
+    color: #ffffff;
 }
 
+
+.film-list .sold-out {
+    background-color: #f8d7da;
+    color: #721c24;
+    
+}
+
+/* New style for the sold-out text */
+.sold-out-text {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #721c24;
+}
+
+
+.delete-btn {
+    background-color: #ff4c4c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+}
+
+.delete-btn:hover {
+    background-color: #ff0000;
+}
+
+/* Main content styles */
 main {
     flex: 3;
 }
@@ -165,7 +197,7 @@ main {
 .movie-details {
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.15); /* Transparent white background */
+    background-color: rgba(255, 255, 255, 0.15);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -178,23 +210,15 @@ main {
     margin-right: 2rem;
 }
 
-.movie-info {
-    text-align: left;
-}
-
 .movie-info h2 {
     margin-top: 1rem;
     font-size: 2rem;
-    color: #ff9800; /* Amber text color */
-}
-
-.movie-info p {
-    margin: 0.5rem 0;
+    color: #ff9800;
 }
 
 .btn {
-    background-color: #ff9800; /* Amber button color */
-    color: #ffffff; /* White text color */
+    background-color: #ff9800;
+    color: #ffffff;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
@@ -204,34 +228,14 @@ main {
 }
 
 .btn:hover {
-    background-color: #f57c00; /* Darker amber on hover */
+    background-color: #f57c00;
 }
 
 .btn.sold-out {
-    background-color: #b71c1c; /* Dark red for sold out */
-    color: #ffffff; /* White text color */
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
+    background-color: #b71c1c;
     cursor: not-allowed;
-    transition: background-color 0.3s;
 }
-
-@keyframes slide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Modal styles */
+/* Trailer Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -241,7 +245,7 @@ main {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background for trailer modal */
 }
 
 .modal-content {
@@ -263,7 +267,7 @@ main {
     border-radius: 10px;
 }
 
-.close {
+.modal .close {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -273,9 +277,184 @@ main {
     cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-    color: white;
-    text-decoration: none;
+.modal .close:hover,
+.modal .close:focus {
+    color: #fff; /* Change color on hover for better visibility */
+}
+
+
+/* Close button for all modals */
+.modal .close,
+#editDialog .close-edit-dialog,
+#editMovieModal .close-edit {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
     cursor: pointer;
 }
+
+.modal .close:hover,
+#editDialog .close-edit-dialog:hover,
+#editMovieModal .close-edit:hover,
+.modal .close:focus,
+#editDialog .close-edit-dialog:focus,
+#editMovieModal .close-edit:focus {
+    color: #fff; /* Change color on hover for better visibility */
+}
+
+/* Dialog Box Modal */
+#editDialog.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(18, 18, 18, 0.9); /* Match page theme */
+}
+
+#editDialog .modal-content {
+    position: relative;
+    margin: 10% auto; /* Center vertically and add top space */
+    padding: 20px;
+    width: 50%;
+    max-width: 500px;
+    background-color: #2c2c2c; /* Dark background to match page theme */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center align the content */
+}
+
+#editDialog label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ff9800; /* Orange text color */
+    font-size: 1.2rem; /* Slightly larger font size */
+    text-align: center; /* Center align the text */
+}
+
+#editDialog input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444; /* Light border color */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    background-color: #333; /* Dark background for input */
+    color: #fff; /* White text color */
+}
+
+#search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: -1px; /* Adjust to be directly below the input */
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #444; /* Light border color */
+    border-radius: 5px;
+    background-color: #2c2c2c; /* Dark background to match dialog */
+    color: #e0e0e0; /* Light text color */
+    position: absolute;
+    width: 100%; /* Full width of the input */
+    z-index: 1001; /* Ensure it appears above other content */
+}
+
+#search-results li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #555; /* Light border color */
+    display: flex;
+    align-items: center;
+}
+
+#search-results li img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+#search-results li:hover {
+    background-color: #3c3c3c; /* Slightly lighter background on hover */
+}
+
+/* Edit Movie Modal styles */
+#editMovieModal.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(18, 18, 18, 0.9); /* Match page theme */
+}
+
+#editMovieModal .modal-content {
+    position: relative;
+    margin: 10% auto; /* Center vertically and add top space */
+    padding: 20px;
+    width: 50%;
+    max-width: 500px;
+    background-color: #2c2c2c; /* Dark background to match page theme */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s;
+    text-align: center; /* Center align the content */
+}
+
+#editMovieModal h2 {
+    text-align: center;
+    color: #ff9800; /* Amber text color to match the page theme */
+}
+
+#editMovieModal label {
+    display: block;
+    margin-top: 10px;
+    color: #e0e0e0; /* Light text color */
+}
+
+#editMovieModal input,
+#editMovieModal textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #444; /* Light border color */
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    background-color: #333; /* Dark background for input/textarea */
+    color: #fff; /* White text color */
+}
+
+#editMovieModal button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50; /* Green button color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#editMovieModal button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+

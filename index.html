@@ -36,8 +36,9 @@
                     <p>Runtime: <span id="runtime"></span> mins</p>
                     <p>Showtime: <span id="showtime"></span></p>
                     <p>Available Tickets: <span id="available-tickets"></span></p>
-                    <button id="buy-ticket" class="btn">Buy Ticket</button>
+                    <button id="buy-ticket" class="btn" type="button">Buy Ticket</button>
                     <button id="watch-trailer" class="btn">Watch Trailer</button>
+                    <button id="edit-movie" class="btn">Edit Movie</button>
                 </div>
             </div>
         </main>
@@ -48,6 +49,37 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <iframe id="trailer" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Edit Movie Dialog -->
+    <div id="editDialog" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-edit-dialog">&times;</span>
+            <label for="movie-search">Which movie would you like to edit?</label>
+            <input type="text" id="movie-search" placeholder="Type to search...">
+            <ul id="search-results" class="dropdown-list"></ul>
+        </div>
+    </div>
+
+    <!-- Edit Movie Modal -->
+    <div id="editMovieModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-edit">&times;</span>
+            <form id="edit-movie-form">
+                <h2>Edit Movie</h2>
+                <label for="edit-title">Title:</label>
+                <input type="text" id="edit-title" required>
+                <label for="edit-description">Description:</label>
+                <textarea id="edit-description" rows="3" required></textarea>
+                <label for="edit-runtime">Runtime (mins):</label>
+                <input type="number" id="edit-runtime" required>
+                <label for="edit-showtime">Showtime:</label>
+                <input type="text" id="edit-showtime" required>
+                <label for="edit-capacity">Capacity:</label>
+                <input type="number" id="edit-capacity" required>
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
         </div>
     </div>
 

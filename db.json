@@ -3,7 +3,7 @@
     {
       "id": "1",
       "title": "The Giant Gila Monster",
-      "runtime": "108",
+      "runtime": 108,
       "capacity": 30,
       "showtime": "04:00PM",
       "tickets_sold": 27,
@@ -39,7 +39,7 @@
       "runtime": "101",
       "capacity": 40,
       "showtime": "09:00PM",
-      "tickets_sold": 31,
+      "tickets_sold": 32,
       "description": "A young man meets a farm girl who is actually a witch.",
       "poster": "https://www.gstatic.com/tv/thumb/v22vodart/43468/p43468_v_v8_aa.jpg",
       "trailer": "videos/The Touch Of Satan trailer (1971).mp4"
@@ -94,7 +94,7 @@
       "runtime": "99",
       "capacity": 40,
       "showtime": "07:30PM",
-      "tickets_sold": 22,
+      "tickets_sold": 23,
       "description": "A saboteur posing as a scientist strives to destroy the world's first space station.",
       "poster": "https://www.gstatic.com/tv/thumb/v22vodart/46755/p46755_v_v8_aa.jpg",
       "trailer": "videos/1953 Project Moon Base Trailer.mp4"
@@ -135,7 +135,7 @@
     {
       "id": "13",
       "title": "Wild Rebels",
-      "runtime": "100",
+      "runtime": 100,
       "capacity": 40,
       "showtime": "09:00PM",
       "tickets_sold": 31,
