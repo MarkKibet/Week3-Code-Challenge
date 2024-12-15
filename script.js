@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayMovieDetails(data[0]); // Display the first movie's details
             displayMoviesList(data); // Display the list of all movies
             setSliderImages(data); // Set up the slider images
-            addSliderClickEvent(data); // Add click event to slider images
+            
         });
 
     // Get modal elements
@@ -42,7 +42,7 @@ function displayMovieDetails(movie) {
     }
 
     document.getElementById('buy-ticket').onclick = function(event) {
-        event.preventDefault(); // Prevent the page from refreshing
+        event.preventDefault(); 
         buyTicket(movie);
     };
 
@@ -93,61 +93,23 @@ function buyTicket(movie) {
         alert('Tickets are sold out!');
     }
 }
-
+//creating a slider 
 function setSliderImages(movies) {
     const slider = document.querySelector('.slider');
-    slider.innerHTML = ''; // Clear existing images
+    slider.innerHTML = ''; 
 
-    // Append each movie poster twice to create a seamless loop
+    
     movies.forEach(movie => {
         const img = document.createElement('img');
         img.src = movie.poster;
         img.alt = movie.title;
-        img.dataset.trailer = movie.trailer; // Store the trailer link
         slider.appendChild(img);
     });
 
-    // Clone the images to create a seamless loop
-    movies.forEach(movie => {
-        const img = document.createElement('img');
-        img.src = movie.poster;
-        img.alt = movie.title;
-        img.dataset.trailer = movie.trailer; // Store the trailer link
-        slider.appendChild(img);
-    });
-
-    const totalImages = slider.children.length;
-    slider.style.width = `${totalImages * 100 / (totalImages / 2)}%`; // Set the width dynamically
-
-    let currentIndex = 0;
-    const totalVisibleImages = totalImages / 2;
-
-    setInterval(() => {
-        currentIndex++;
-        slider.style.transition = 'transform 1s linear';
-        slider.style.transform = `translateX(-${currentIndex * 100 / totalVisibleImages}%)`;
-
-        if (currentIndex >= totalVisibleImages) {
-            setTimeout(() => {
-                slider.style.transition = 'none';
-                slider.style.transform = `translateX(0)`;
-                currentIndex = 0;
-            }, 1000); // Wait for the transition to finish before resetting
-        }
-    }, 5000); // Change image every 5 seconds
+       
 }
 
-function addSliderClickEvent(movies) {
-    const sliderImages = document.querySelectorAll('.slider img');
-    sliderImages.forEach(img => {
-        img.addEventListener('click', (event) => {
-            const trailerLink = event.target.dataset.trailer;
-            if (trailerLink) {
-                openModal(trailerLink);
-            }
-        });
-    });
-}
+
 
 function openModal(trailerLink) {
     const modal = document.getElementById('trailerModal');
